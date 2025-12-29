@@ -10,8 +10,8 @@
     <body>
         <div class="container mt-4">
             <!-- BEGIN (write your solution here) -->
-            <a href="/about">about</a>
-            <a href="/articles">articles</a>
+            <a href="/about">About</a>
+            <a href="/articles">Articles</a>
             <!-- END -->
         </div>
     </body>
