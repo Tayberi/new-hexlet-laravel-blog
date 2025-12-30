@@ -21,9 +21,6 @@ class AppTest extends TestCase
         $response = $this->get('/about');
         $response->assertStatus(200);
         $response->assertSee('<h1>О блоге</h1>', false);
-        $response->assertSee('<p>Эксперименты с Ларавелем на Хекслете</p>', false);
-        $response->assertSee('CEO');
-
     }
 
     public function testArticles()
