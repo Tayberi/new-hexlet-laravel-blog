@@ -15,7 +15,6 @@ class AppTest extends TestCase
         $response->assertSee('<a href="/about">', false);
     }
 
-
     public function testAbout()
     {
         $response = $this->get('/about');
