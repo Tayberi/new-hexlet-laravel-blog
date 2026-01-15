@@ -8,6 +8,8 @@ use Tests\TestCase;
 
 class AppTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function testIndex()
     {
         $response = $this->get('/');
@@ -27,5 +29,11 @@ class AppTest extends TestCase
         $response = $this->get('/articles');
         $response->assertStatus(200);
         $response->assertSee('<h1>Статьи</h1>', false);
+    }
+
+    public function testArticle()
+    {
+        $columns = \Schema::getColumnListing('articles');
+        $this->assertContains('views_count', $columns, json_encode($columns));
     }
 }
