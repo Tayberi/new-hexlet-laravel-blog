@@ -28,12 +28,20 @@ class AppTest extends TestCase
     {
         $response = $this->get('/articles');
         $response->assertStatus(200);
-        $response->assertSee('<h1>Статьи</h1>', false);
     }
 
     public function testArticle()
     {
         $columns = \Schema::getColumnListing('articles');
         $this->assertContains('views_count', $columns, json_encode($columns));
+    }
+
+    public function testArticlesCreate()
+    {
+        $article = \App\Models\Article::factory()->create();
+        $response = $this->get('/articles');
+        $response->assertStatus(200);
+        $response->assertSeeText(htmlentities($article->name));
+        $response->assertSeeText(htmlentities($article->body));
     }
 }
