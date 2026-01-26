@@ -9,10 +9,8 @@
     </head>
     <body>
         <div class="container mt-4">
-            <!-- BEGIN (write your solution here) -->
             <a href="/about">About</a>
-            <a href="/articles">Articles</a>
-            <!-- END -->
+            <a href="{{ route('articles.index') }}">Articles</a>
         </div>
     </body>
 </html>
